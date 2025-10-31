@@ -1,7 +1,7 @@
 import {handleWebhook} from './telegram/utils/handleUpdates'
 import {setEnv} from './telegram/utils/envManager'
 import {tg} from './telegram/lib/methods'
-import {locales} from './locales'
+import {messages} from './messages/en'
 
 // use `npm run gen` to regenerate `worker-configuration.d.ts`
 export interface Env {
@@ -29,29 +29,29 @@ export default {
 					url: `${url.protocol}//${url.hostname}${WEBHOOK}`,
 					secret_token: env.TELEGRAM_SECRET,
 				})
-				if (result) return new Response(locales.webhook.registered)
-				else return new Response(locales.webhook.registerFailed)
+				if (result) return new Response(messages.webhook.registered)
+				else return new Response(messages.webhook.registerFailed)
 			} catch (error) {
 				ctx.waitUntil((async () => {
 					return new Promise(resolve => {
-						console.log(locales.webhook.error(error))
+						console.log(messages.webhook.error(error))
 						resolve(error)
 					})
 				})())
-				return new Response(locales.webhook.error(error))
+				return new Response(messages.webhook.error(error))
 			}
 		} else if (url.pathname === UNREGISTER) {
 			try {
 				const result = await tg.setWebhook({
 					url: '',
 				})
-				if (result) return new Response(locales.webhook.unregistered)
-				else return new Response(locales.webhook.unregisterFailed)
+				if (result) return new Response(messages.webhook.unregistered)
+				else return new Response(messages.webhook.unregisterFailed)
 			} catch (error) {
-				return new Response(locales.webhook.error(error))
+				return new Response(messages.webhook.error(error))
 			}
 		} else {
-			return new Response(locales.http.notFound, {status: 404})
+			return new Response(messages.http.notFound, {status: 404})
 		}
 	},
 } satisfies ExportedHandler<Env>

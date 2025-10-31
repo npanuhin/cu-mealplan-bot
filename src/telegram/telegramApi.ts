@@ -1,4 +1,4 @@
-import {locales} from '../locales'
+import {messages} from '../messages/en'
 import {tg} from './lib/methods'
 
 // --- Send Message ---
@@ -28,7 +28,7 @@ export async function sendMessage({
 			})
 		} catch (error) {
 			console.error(`!!! MarkdownV2 sending failed for [ChatID: ${chatId}]. Falling back to plain text.`, error)
-			return sendMessage({chatId, text: locales.errors.markdownV2, disableNotification, useMarkdownV2: false})
+			return sendMessage({chatId, text: messages.errors.markdownV2, disableNotification, useMarkdownV2: false})
 		}
 	}
 
@@ -63,7 +63,7 @@ export async function editMessage({
 			})
 		} catch (error) {
 			console.error(`!!! MarkdownV2 editing failed for message ${messageId} in [ChatID: ${chatId}]. Falling back to plain text.`, error)
-			// return editMessage({chatId, messageId, text: locales.errors.markdownV2, useMarkdownV2: false})
+			// return editMessage({chatId, messageId, text: en.errors.markdownV2, useMarkdownV2: false})
 			return false
 		}
 	}
