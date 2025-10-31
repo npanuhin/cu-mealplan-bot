@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cu-mealplan-bot",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-10-26",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "invocation_logs": false
+    }
+  },
+  "workers_dev": true,
+  "preview_urls": false,
+//  "triggers": {
+//    "crons": [
+//      "* * * * *"
+//    ]
+//  },
+  "kv_namespaces": [
+    {
+      "binding": "CU_MEALPLAN_USERS",
+      "id": "4d3fd8a15e3d465f90346093612b4d7d"
+    }
+  ]
+}
