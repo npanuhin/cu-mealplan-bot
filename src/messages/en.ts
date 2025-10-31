@@ -1,5 +1,5 @@
-import {format} from 'date-fns'
-import {t} from './utils'
+import { format } from 'date-fns'
+import { t } from './utils'
 
 const formatCurrency = (value: number) => value.toFixed(2).replace('.', '\\.').replace('-', '\\-')
 const formatInitialBalance = (value: number) => Math.round(value).toString()
@@ -30,7 +30,7 @@ Send me your current Campus Card \\(mealplan\\) balance, for example: \`1543.50\
 	dateChanged: (
 		dateType: string,
 		oldDate: Date,
-		newDate: Date
+		newDate: Date,
 	) => t`
 ✅ The ${dateType} was changed from *${format(oldDate, "d 'of' MMMM yyyy")}* to *${format(newDate, "d 'of' MMMM yyyy")}*
 `,
@@ -74,7 +74,7 @@ ${spoiler}
 		startDate: Date,
 		endDate: Date,
 		idealSpending: number,
-		today: Date
+		today: Date,
 	) => t`
 ||Ideal daily spending of *€${formatInitialBalance(initialBalance)}* \\(${format(startDate, "d 'of' MMMM yyyy")} — ${format(endDate, "d 'of' MMMM yyyy")}\\) is *€${formatCurrency(idealSpending)}*\\. Calculated as of the end of day: ${format(today, "d 'of' MMMM yyyy")}\\.||
 `,
@@ -92,5 +92,5 @@ ${spoiler}
 	http: {
 		notFound: t`Not found`,
 		unauthorized: t`Unauthorized`,
-	}
+	},
 }

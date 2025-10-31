@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "gen": "wrangler types",
-    "deploy": "wrangler deploy"
+    "gen": "wrangler types && node src/scripts/gen-handlers.mjs",
+    "deploy": "npm run gen && wrangler deploy"
   },
   "devDependencies": {
     "typescript": "^5.9.3",

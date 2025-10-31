@@ -14,11 +14,11 @@
   },
   "workers_dev": true,
   "preview_urls": false,
-//  "triggers": {
-//    "crons": [
-//      "* * * * *"
-//    ]
-//  },
+  //  "triggers": {
+  //    "crons": [
+  //      "* * * * *"
+  //    ]
+  //  },
   "kv_namespaces": [
     {
       "binding": "CU_MEALPLAN_USERS",

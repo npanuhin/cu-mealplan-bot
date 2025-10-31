@@ -1,4 +1,4 @@
-import { callApi } from '../utils/apiManager';
+import { callApi } from '../../../src/telegram/utils/apiManager';
 
 export namespace tg {
     /**

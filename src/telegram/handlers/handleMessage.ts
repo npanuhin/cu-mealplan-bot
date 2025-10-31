@@ -1,8 +1,8 @@
-import {parse, isValid, differenceInCalendarDays, format, subDays} from 'date-fns'
-import {sendMessage} from '../telegramApi'
-import {getEnv} from '../utils/envManager'
-import {toZonedTime} from 'date-fns-tz'
-import {messages} from '../../messages/en'
+import { differenceInCalendarDays, format, isValid, parse, subDays } from 'date-fns'
+import { sendMessage } from '../telegramApi'
+import { getEnv } from '../utils/envManager'
+import { messages } from '../../messages/en'
+import { toZonedTime } from 'date-fns-tz'
 
 // --- Default Configuration ---
 const DEFAULT_START_DATE = new Date('2025-08-21')
@@ -66,7 +66,11 @@ export async function handleMessage(message: tgTypes.Message) {
 					return
 				}
 				await env.CU_MEALPLAN_USERS.put(`${chatId}-money`, amount.toString())
-				await sendMessage({chatId, text: messages.initialAmountChanged(initialBalance, amount), useMarkdownV2: true})
+				await sendMessage({
+					chatId,
+					text: messages.initialAmountChanged(initialBalance, amount),
+					useMarkdownV2: true,
+				})
 				return
 
 			case '/arrival':
@@ -97,7 +101,11 @@ export async function handleMessage(message: tgTypes.Message) {
 					}
 
 					if (command === '/leave' && parsedDate < startDate) {
-						await sendMessage({chatId, text: messages.leaveBeforeArrivalError(startDate), useMarkdownV2: true})
+						await sendMessage({
+							chatId,
+							text: messages.leaveBeforeArrivalError(startDate),
+							useMarkdownV2: true,
+						})
 						return
 					}
 
@@ -167,13 +175,13 @@ export async function handleMessage(message: tgTypes.Message) {
 		finalMessage = messages.statusOverspent(
 			Math.abs(differenceFromIdeal),
 			recommendedSpending,
-			spoilerText
+			spoilerText,
 		)
 	} else {
 		finalMessage = messages.statusSaved(
 			differenceFromIdeal,
 			recommendedSpending,
-			spoilerText
+			spoilerText,
 		)
 	}
 

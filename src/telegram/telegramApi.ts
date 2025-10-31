@@ -1,5 +1,5 @@
-import {messages} from '../messages/en'
-import {tg} from './lib/methods'
+import { tg } from '../../lib/telegram/lib/methods'
+import { messages } from '../messages/en'
 
 // --- Send Message ---
 export interface SendMessageOptions {
@@ -78,7 +78,10 @@ export interface DeleteMessageOptions {
 	messageId: number;
 }
 
-export async function deleteMessage({chatId, messageId}: DeleteMessageOptions): Promise<boolean> {
+export async function deleteMessage({
+	chatId,
+	messageId,
+}: DeleteMessageOptions): Promise<boolean> {
 	console.log(`-> Deleting message ${messageId} in [ChatID: ${chatId}]`)
 	return tg.deleteMessage({chat_id: chatId, message_id: messageId})
 }
