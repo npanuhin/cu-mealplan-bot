@@ -17,11 +17,11 @@ Send me your current Campus Card \\(mealplan\\) balance, for example: \`1543.50\
 
 *Available commands:*
 /arrival \`\\{date\\}\` — Set YOUR semester/mealplan start date \\(inclusive\\), e\\.g\\. default: \`/arrival 21\\.08\\.2025\`
-/leave \`\\{date\\}\` — Set YOUR semester/mealplan end date \\(inclusive\\), e\\.g\\. default: \`/leave 31\\.01\\.2026\`
-/initial \`\\{amount\\}\` — Set YOUR initial mealplan balance, e\\.g\\. default: \`/initial 2000\`
+/leave \`\\{date\\}\` — Set YOUR semester/mealplan end date \\(inclusive\\), e\\.g\\. default: \`/leave 31\\.05\\.2026\`
+/initial \`\\{amount\\}\` — Set YOUR initial mealplan balance, e\\.g\\. default: \`/initial 4000\`
 `,
 	arrivalDatePrompt: t`Please provide a date after the command\\. For example: \`/arrival 21\\.08\\.2025\``,
-	leaveDatePrompt: t`Please provide a date after the command\\. For example: \`/leave 31\\.01\\.2026\``,
+	leaveDatePrompt: t`Please provide a date after the command\\. For example: \`/leave 31\\.05\\.2026\``,
 	initialAmountPrompt: t`Please provide an amount after the command\\. For example: \`/initial 2500\``,
 	invalidInitialAmount: t`❌ The initial amount must be a positive number\\.`,
 	invalidInitialAmountNotInteger: t`❌ The initial amount must be a whole number \\(e\\.g\\., 2500\\), not a fractional one\\.`,
@@ -36,11 +36,11 @@ Send me your current Campus Card \\(mealplan\\) balance, for example: \`1543.50\
 `,
 	notANumber: t`This does not look like a number 🤔\\. Please send your account balance or check the available commands in /help\\.`,
 	negativeBalance: t`Your balance cannot be negative\\. Perhaps you made a mistake? 😊`,
-	balanceTooHigh: (initialBalance: number) => t`
-Your balance cannot be higher than the initial €${formatInitialBalance(initialBalance)}\\. Perhaps you made a mistake? 😊
-
-You can change your initial balance using the \\/initial command\\.
-`,
+// 	balanceTooHigh: (initialBalance: number) => t`
+// Your balance cannot be higher than the initial €${formatInitialBalance(initialBalance)}\\. Perhaps you made a mistake? 😊
+//
+// You can change your initial balance using the \\/initial command\\.
+// `,
 	periodEnded: (remainingMoney: number) => t`
 The spending period has ended\\. You have *€${formatCurrency(remainingMoney)}* left\\.
 

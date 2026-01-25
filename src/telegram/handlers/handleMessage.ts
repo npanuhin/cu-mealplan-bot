@@ -6,8 +6,8 @@ import { toZonedTime } from 'date-fns-tz'
 
 // --- Default Configuration ---
 const DEFAULT_START_DATE = new Date('2025-08-21')
-const DEFAULT_END_DATE = new Date('2026-01-31')
-const DEFAULT_INITIAL_BALANCE = 2000
+const DEFAULT_END_DATE = new Date('2026-05-31')
+const DEFAULT_INITIAL_BALANCE = 4000
 
 export async function handleMessage(message: tgTypes.Message) {
 	if (!message.text) {
@@ -136,11 +136,6 @@ export async function handleMessage(message: tgTypes.Message) {
 
 	if (currentBalance < 0) {
 		await sendMessage({chatId, text: messages.negativeBalance, useMarkdownV2: true})
-		return
-	}
-
-	if (currentBalance > initialBalance) {
-		await sendMessage({chatId, text: messages.balanceTooHigh(initialBalance), useMarkdownV2: true})
 		return
 	}
 
